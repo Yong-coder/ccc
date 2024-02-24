@@ -24,8 +24,6 @@
         timeout: 1500,
       };
     </script>
-    <link rel="dns-prefetch" href="//maps.googleapis.com" />
-    <link rel="dns-prefetch" href="//maps.gstatic.com" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
 
     <link
@@ -79,7 +77,6 @@
       crossorigin="anonymous"
       rel="preconnect"
     />
-    <link href="https://ajax.googleapis.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <script
       type="text/javascript"
@@ -2498,196 +2495,18 @@
       </div>
     </section>
 
+    <!--Map Section Start-->
     <section
       id="map-home"
       class="map-home"
-      data-map-category="office"
-      data-google-key="AIzaSyDe6-qeUENvvy2Dx0QfTMZzQYz_bDwfuJI"
     >
-      <div class="map-home__title fs-15">LOCATION & MAP</div>
+      <div class="map-home__title fs-15">LOCATION</div>
 
       <div class="map-home__subtitle fs-30">We are Worldwide</div>
 
-      <div class="map-home__filtering">
-        <select2 :options="categories" v-model="selectedCategory">
-          <option disabled="" selected="" value="">CATEGORIES</option>
-        </select2>
       </div>
-
-      <div class="map-home__full-map" v-on:click="fitBounds">
-        <a class="btn btn__arrow btn__arrow--block btn__arrow--solid">
-          <span class="btn__text">
-            FULL MAP
-            <span class="btn__icon">
-              <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                width="56.833px"
-                height="32.416px"
-                viewbox="0 0 56.833 32.416"
-                enable-background="new 0 0 56.833 32.416"
-                xml:space="preserve"
-              >
-                <path
-                  fill="none"
-                  stroke="#231F20"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M40.75,2.19l14.142,14.143
-	L40.75,30.476 M54.892,16.333H2.417"
-                ></path>
-              </svg>
-            </span>
-          </span>
-        </a>
-      </div>
-
-      <div v-if="loadingApp" class="projects__loader">
-        <div class="projects__loader__content">
-          <div class="loader-new">
-            <div class="loader-block--new"></div>
-          </div>
-
-          <div class="projects__loader__content__text">Loading...</div>
-        </div>
-      </div>
-
-      <div v-else="" v-cloak="">
-        <transition name="fade" mode="out-in">
-          <div class="map-home__map">
-            <gmap-map
-              ref="mmm"
-              :center="center"
-              :zoom="3"
-              :options="mapOptions"
-              style="width: 100%; height: 100%"
-              v-on:bounds_changed="boundsChanged"
-            >
-              <gmap-cluster
-                :grid-size="gridSize"
-                :styles="clusterStyles"
-                :zoom-on-click="zoomOnClick"
-              >
-                <gmap-marker
-                  v-for="( m, index ) in contacts"
-                  :position="m.position"
-                  :icon="m.markerIcon"
-                  :title="m.title"
-                  :animation="markerAnimation"
-                  :clickable="true"
-                  :draggable="false"
-                  @click="togglePopup( m, index )"
-                  :key="index"
-                ></gmap-marker>
-              </gmap-cluster>
-            </gmap-map>
-
-            <div v-if="infoPopupOpen" class="map-home__popup">
-              <div class="map-home__popup__inner">
-                <div class="map-home__popup__country">{{ popupCountry }}</div>
-
-                <div class="map-home__popup__company">
-                  {{ popupContactCompany }}
-                </div>
-
-                <div class="map-home__popup__address">
-                  <div class="map-home__popup__address__icon">
-                    <a v-bind:href="popupContactAddressUrl" target="_blank">
-                      <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px"
-                        y="0px"
-                        width="23.417px"
-                        height="35.083px"
-                        viewbox="0 0 23.417 35.083"
-                        enable-background="new 0 0 23.417 35.083"
-                        xml:space="preserve"
-                      >
-                        <path
-                          fill="#919191"
-                          d="M22.79,11.636C22.513,5.7,17.648,0.941,11.7,0.798C5.768,0.941,0.903,5.702,0.626,11.64l-0.001,0.03
-	c-0.008,0.167-0.013,0.335-0.013,0.506c0,3.413,2.158,5.855,4.444,8.441c0.769,0.87,1.564,1.769,2.303,2.732
-	c2.474,3.222,3.785,8.229,4.349,10.937c0.563-2.708,1.875-7.715,4.349-10.937c0.739-0.963,1.533-1.862,2.303-2.732
-	c2.286-2.586,4.443-5.028,4.443-8.441c0-0.17-0.004-0.338-0.012-0.506L22.79,11.636z M11.708,15.179
-	c-1.915,0-3.468-1.551-3.468-3.466c0-1.916,1.553-3.468,3.468-3.468s3.468,1.552,3.468,3.468
-	C15.176,13.628,13.624,15.179,11.708,15.179z"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
-
-                  <a v-bind:href="popupContactAddressUrl" target="_blank">
-                    <span v-html="popupContactAddress"></span>
-                  </a>
-                </div>
-
-                <div class="map-home__popup__telephone">
-                  <span> T. </span>
-
-                  <template
-                    v-for="( telephone, index ) in popupContactTelephones"
-                  >
-                    <a v-bind:href="'tel:'+telephone.telnum"
-                      >{{ telephone.tel }}</a
-                    >
-
-                    <template v-if="index != popupContactTelephones.length - 1">
-                      |
-                    </template>
-                  </template>
-                </div>
-
-                <div class="map-home__popup__telephone">
-                  <span> F. </span>
-
-                  <template v-for="( fax, index ) in popupContactFax">
-                    {{ fax }}
-
-                    <template v-if="index != popupContactFax.length - 1">
-                      |
-                    </template>
-                  </template>
-                </div>
-
-                <div v-on:click="closePopup" class="map-home__popup__close">
-                  <svg
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px"
-                    y="0px"
-                    width="35.443px"
-                    height="35.434px"
-                    viewbox="0 0 35.443 35.434"
-                    enable-background="new 0 0 35.443 35.434"
-                    xml:space="preserve"
-                  >
-                    <path
-                      fill="none"
-                      stroke="#000000"
-                      stroke-width="3"
-                      d="M3.096,3.347L32.348,32.6 M32.348,3.347L3.096,32.6"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </transition>
-      </div>
-
-      <script type="text/x-template" id="select2-template">
-        <select>
-        	<slot></slot>
-        </select>
-      </script>
     </section>
+    <!--Map Section Start-->
 
     <section class="footer-banner">
       <div class="site__container">
