@@ -481,228 +481,32 @@
 
 	</header>
 
-	<div v-bind:class="activeView" v-on:keyup.esc="closePopup" id="projects" class="projects"
-		data-google-key="AIzaSyDe6-qeUENvvy2Dx0QfTMZzQYz_bDwfuJI">
-		<div v-if="loadingApp" class="projects__loader">
-			<div class="projects__loader__content">
-
-				<div class="loader-new">
-
-					<div class="loader-block--new"></div>
-
-				</div>
-
-				<div class="projects__loader__content__text">
-
-					Loading...
-				</div>
-
-			</div>
-		</div>
-
-		<div v-else="" v-cloak="">
-
-			<transition name="fade" mode="out-in">
-				<div v-if="isMapView" class="projects__map">
-
-					<gmap-map ref="mmm" :center="center" :zoom="3" :options="mapOptions"
-						style="width: 100%; height: 100%" v-on:bounds_changed="boundsChanged">
-						<gmap-cluster :grid-size="gridSize" :styles="clusterStyles" :zoom-on-click="zoomOnClick">
-							<gmap-marker v-for="( m, index ) in projects" :position="m.position" :icon="m.markerIcon"
-								:title="m.title" :animation="markerAnimation" :clickable="true" :draggable="false"
-								@click="togglePopup( m, index )" :key="index"></gmap-marker>
-						</gmap-cluster>
-					</gmap-map>
-
-					<div class="projects__map__full" v-on:click="fitBounds">
-
-
-						<a class="btn btn__arrow btn__arrow--block btn__arrow--solid">
-
-							<span class="btn__text">
-
-								FULL MAP
-								<span class="btn__icon">
-
-									<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="56.833px"
-										height="32.416px" viewbox="0 0 56.833 32.416"
-										enable-background="new 0 0 56.833 32.416" xml:space="preserve">
-										<path fill="none" stroke="#231F20" stroke-width="3" stroke-linecap="round"
-											stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
-	L40.75,30.476 M54.892,16.333H2.417"></path>
-									</svg>
-
-
-								</span>
-							</span>
-
-						</a>
-
-
-					</div>
-
-					<div v-if="infoPopupOpen" class="projects__map__popup">
-						<div class="projects__map__popup__inner" v-bar="{ preventParentScroll: true, }">
-							<div>
-								<div class="projects__map__popup__content__wrapper">
-
-									<div class="projects__map__popup__title">
-
-										<a v-bind:href="popupProjectLink">{{ popupTitle }}</a>
-
-									</div>
-
-									<div class="projects__map__popup__country">{{ popupCountry }}</div>
-
-									<div class="projects__map__popup__bg">
-
-										<div class="projects__map__popup__bg__inner"
-											v-bind:style="{ 'background-image': 'url( ' + popupImage + ' )' }"></div>
-
-									</div>
-
-									<div v-if="popupTitle" class="projects__map__popup__item">
-
-										<span>
-
-											PROJECT NAME:
-
-										</span> {{ popupTitle }}
-
-									</div>
-
-									<div v-if="popupProjectLocation" class="projects__map__popup__item">
-
-										<span>
-
-											LOCATION:
-
-										</span> {{ popupProjectLocation }}
-
-									</div>
-
-									<div v-if="popupProjectClient" class="projects__map__popup__item">
-
-										<span>
-
-											CLIENT:
-
-										</span> {{ popupProjectClient }}
-
-									</div>
-
-									<div v-if="popupProjectScope" class="projects__map__popup__item">
-
-										<span>
-
-											SCOPE:
-
-										</span> {{ popupProjectScope }}
-
-									</div>
-
-									<div v-if="popupProjectDuration" class="projects__map__popup__item">
-
-										<span>
-
-											DURATION:
-
-										</span> {{ popupProjectDuration }}
-
-									</div>
-
-									<div v-if="popupProjectDate" class="projects__map__popup__item">
-
-										<span>
-
-											DATE OF COMPLETION:
-
-										</span> {{ popupProjectDate }}
-
-									</div>
-
-									<div v-if="popupProjectLink" class="projects__map__popup__link">
-
-										<a class="btn btn__arrow btn__arrow--solid-dark" v-bind:href="popupProjectLink">
-
-											<span class="btn__text">
-
-												DISCOVER PROJECT
-											</span>
-
-											<span class="btn__icon">
-
-												<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-													xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-													width="56.833px" height="32.416px" viewbox="0 0 56.833 32.416"
-													enable-background="new 0 0 56.833 32.416" xml:space="preserve">
-													<path fill="none" stroke="#231F20" stroke-width="3"
-														stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
-	L40.75,30.476 M54.892,16.333H2.417"></path>
-												</svg>
-
-											</span>
-
-										</a>
-
-									</div>
-
-									<div v-on:click="closePopup" class="projects__map__popup__close">
-
-										<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.443px"
-											height="35.434px" viewbox="0 0 35.443 35.434"
-											enable-background="new 0 0 35.443 35.434" xml:space="preserve">
-											<path fill="none" stroke="#000000" stroke-width="3"
-												d="M3.096,3.347L32.348,32.6 M32.348,3.347L3.096,32.6"></path>
-										</svg>
-
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</transition>
-
+	<div id="projects" data-google-key="AIzaSyDe6-qeUENvvy2Dx0QfTMZzQYz_bDwfuJI" class="projects list-view">
+		<div class=""><!---->
 			<div class="site__container">
 				<div class="projects__inner">
-
-					<h1 v-if="isListView" class="projects__title fs-m-14">
+					<h1 class="projects__title fs-m-14">
 
 						SAMPLE PROJECTS
 					</h1>
-
 					<div class="projects__header">
-
 						<div class="projects__header__views">
-
-							<div v-on:click="enableMap" class="projects__header__map-view">
-
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24.167px"
-									height="36.5px" viewbox="0 0 24.167 36.5" enable-background="new 0 0 24.167 36.5"
-									xml:space="preserve">
+							<div class="projects__header__map-view"><svg version="1.1"
+									xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+									x="0px" y="0px" width="24.167px" height="36.5px" viewBox="0 0 24.167 36.5"
+									enable-background="new 0 0 24.167 36.5" xml:space="preserve">
 									<path fill="#919191" d="M23.164,12.345C22.889,6.409,18.023,1.65,12.074,1.506C6.143,1.65,1.277,6.41,1.002,12.348L1,12.378
 		c-0.008,0.167-0.012,0.335-0.012,0.506c0,3.413,2.158,5.855,4.443,8.441c0.77,0.87,1.564,1.769,2.303,2.732
 		c2.475,3.222,3.785,8.229,4.35,10.937c0.563-2.708,1.875-7.715,4.348-10.937c0.74-0.963,1.533-1.862,2.303-2.732
 		c2.287-2.586,4.443-5.028,4.443-8.441c0-0.17-0.004-0.338-0.012-0.506L23.164,12.345z M12.084,15.888
 		c-1.916,0-3.469-1.551-3.469-3.466c0-1.916,1.553-3.468,3.469-3.468c1.914,0,3.467,1.552,3.467,3.468
 		C15.551,14.336,13.998,15.888,12.084,15.888z"></path>
-
 								</svg>
 								MAP VIEW
 							</div>
-
-							<div v-on:click="enableList" class="projects__header__list-view">
-
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-									viewbox="0 0 60.123 60.123" style="enable-background:new 0 0 60.123 60.123;"
-									xml:space="preserve">
+							<div class="projects__header__list-view"><svg version="1.1"
+									xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+									x="0px" y="0px" viewBox="0 0 60.123 60.123" xml:space="preserve">
 									<path
 										d="M57.124,51.893H16.92c-1.657,0-3-1.343-3-3s1.343-3,3-3h40.203c1.657,0,3,1.343,3,3S58.781,51.893,57.124,51.893z">
 									</path>
@@ -717,241 +521,1598 @@
 								</svg>
 								LIST VIEW
 							</div>
-
 						</div>
-
 						<form class="projects__header__form">
 							<div class="projects__header__filters__wrapper">
-
 								<div class="projects__header__filters">
-
 									<div class="projects__header__title">
 
 										SAMPLE MAJOR PROJECTS
 									</div>
-
-									<div class="projects__header__filter">
-										<select2 :options="countries" v-model="selectedCountry">
-
-											<option disabled="" selected="" value="">
+									<div class="projects__header__filter"><select tabindex="-1"
+											class="select2-hidden-accessible" aria-hidden="true">
+											<option disabled="disabled" selected="selected" value="">
 
 												COUNTRIES
 											</option>
+											<option value="All">All</option>
+											<option value="Egypt">Egypt</option>
+											<option value="Jordan">Jordan</option>
+											<option value="Azerbaijan">Azerbaijan</option>
+											<option value="Mauritania">Mauritania</option>
+											<option value="Kazakhstan">Kazakhstan</option>
+											<option value="Saudi Arabia">Saudi Arabia</option>
+											<option value="Australia">Australia</option>
+											<option value="Equatorial Guinea">Equatorial Guinea</option>
+											<option value="Oman">Oman</option>
+											<option value="Qatar">Qatar</option>
+											<option value="United Arab Emirates">United Arab Emirates</option>
+										</select><span class="select2 select2-container select2-container--default"
+											dir="ltr" style="width: 266px;"><span class="selection"><span
+													class="select2-selection select2-selection--single" role="combobox"
+													aria-haspopup="true" aria-expanded="false" tabindex="0"
+													aria-labelledby="select2-jsxw-container"><span
+														class="select2-selection__rendered" id="select2-jsxw-container"
+														title="
 
-										</select2>
-									</div>
+											COUNTRIES
+										">
 
-									<div class="projects__header__filter">
-										<select2 :options="industries" v-model="selectedIndustry">
-
-											<option disabled="" selected="" value="">
+														COUNTRIES
+													</span><span class="select2-selection__arrow" role="presentation"><b
+															role="presentation"></b></span></span></span><span
+												class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+									<div class="projects__header__filter"><select tabindex="-1"
+											class="select2-hidden-accessible" aria-hidden="true">
+											<option disabled="disabled" selected="selected" value="">
 
 												INDUSTRIES
 											</option>
+											<option value="All">All</option>
+											<option value="Buildings">Buildings</option>
+											<option value="Process Plants">Process Plants</option>
+											<option value="Pipelines">Pipelines</option>
+											<option value="Power">Power</option>
+											<option value="Sports Facilities">Sports Facilities</option>
+											<option value="Transportation">Transportation</option>
+											<option value="Infrastructure">Infrastructure</option>
+											<option value="Private Partnerships">Private Partnerships</option>
+										</select><span class="select2 select2-container select2-container--default"
+											dir="ltr" style="width: 266px;"><span class="selection"><span
+													class="select2-selection select2-selection--single" role="combobox"
+													aria-haspopup="true" aria-expanded="false" tabindex="0"
+													aria-labelledby="select2-xsji-container"><span
+														class="select2-selection__rendered" id="select2-xsji-container"
+														title="
 
-										</select2>
-									</div>
+											INDUSTRIES
+										">
 
-									<div class="projects__header__filter">
-										<select2 :options="statuses" v-model="selectedStatus">
-
-											<option disabled="" selected="" value="">
+														INDUSTRIES
+													</span><span class="select2-selection__arrow" role="presentation"><b
+															role="presentation"></b></span></span></span><span
+												class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+									<div class="projects__header__filter"><select tabindex="-1"
+											class="select2-hidden-accessible" aria-hidden="true">
+											<option disabled="disabled" selected="selected" value="">
 
 												STATUS
 											</option>
+											<option value="All">All</option>
+											<option value="Completed">Completed</option>
+											<option value="In progress">In progress</option>
+										</select><span class="select2 select2-container select2-container--default"
+											dir="ltr" style="width: 266px;"><span class="selection"><span
+													class="select2-selection select2-selection--single" role="combobox"
+													aria-haspopup="true" aria-expanded="false" tabindex="0"
+													aria-labelledby="select2-apjz-container"><span
+														class="select2-selection__rendered" id="select2-apjz-container"
+														title="
 
-										</select2>
-									</div>
+											STATUS
+										">
 
-								</div>
-
-								<transition name="fade" mode="out-in">
-									<div v-if="filtering" v-on:click="resetFiltering" class="projects__header__clear">
-
-										Clear all filters<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-											xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.443px"
-											height="35.434px" viewbox="0 0 35.443 35.434"
-											enable-background="new 0 0 35.443 35.434" xml:space="preserve">
-											<path fill="none" stroke="#000000" stroke-width="3"
-												d="M3.096,3.347L32.348,32.6 M32.348,3.347L3.096,32.6"></path>
-										</svg>
-
-									</div>
-								</transition>
-
+														STATUS
+													</span><span class="select2-selection__arrow" role="presentation"><b
+															role="presentation"></b></span></span></span><span
+												class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+								</div> <!---->
 							</div>
 						</form>
 					</div>
-
-					<transition name="fade" mode="out-in">
-						<div v-if="isListView" class="projects__list">
-							<div v-if="noPost" class="projects__nopost fs-m-14">
-
-								NO PROJECTS FOUND WITH THIS FILTER...
-							</div>
-
-							<div v-if="showProjects" class="project__items">
-								<div class="grid grid--full">
-									<div class="grid__item mob--one-half lap--one-third" v-for="project in projects">
-										<div class="project__item">
-
-											<div class="project__item__inner">
-
-												<a class="project__item__link" v-bind:href="project.link"></a>
-
-												<div class="project__item__bg"
-													v-bind:style="{ 'background-image': 'url( ' + project.thumb.url + ' )' }">
-												</div>
-
-												<div class="project__item__content">
-
-													<h3 class="project__item__title">{{ project.title }}</h3>
-													<div class="project__item__location">{{ project.country }}</div>
-													<div class="project__item__industry">{{ project.industry }}</div>
-
-												</div>
-
+					<div class="projects__list"><!---->
+						<div class="project__items">
+							<div class="grid grid--full">
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/zafarana-50-mwp-photovoltaic-solar-plant/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2022/12/p1226-zafarana-50-mwp-photovoltaic-solar-plant-overview-500_500.jpg&quot;);">
 											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Zafarana 50 MWp Photovoltaic Solar
+													Plant</h3>
+												<div class="project__item__location">EGYPT</div>
+												<div class="project__item__industry">POWER</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Zafarana 50 MWp Photovoltaic
+													Solar Plant</div>
+												<div class="project__item__hover__item"><span>
 
-											<div class="project__item__hover">
-												<div class="project__item__hover__inner">
+														PROJECT NAME:
 
-													<div class="project__item__hover__title">{{ project.title }}</div>
+													</span> Zafarana 50 MWp Photovoltaic Solar Plant
 
-													<div v-if="project.title" class="project__item__hover__item">
+												</div>
+												<div class="project__item__hover__item"><span>
 
-														<span>
+														LOCATION:
 
-															PROJECT NAME:
+													</span> Zafarana, Egypt
 
-														</span> {{ project.title }}
+												</div>
+												<div class="project__item__hover__item"><span>
 
-													</div>
+														CLIENT:
 
-													<div v-if="project.location" class="project__item__hover__item">
+													</span> New &amp; Renewable Energy Authority (NREA)
 
-														<span>
+												</div>
+												<div class="project__item__hover__item"><span>
 
-															LOCATION:
+														SCOPE:
 
-														</span> {{ project.location }}
+													</span> Engineering, Procurement, Construction, Operation,
+													Maintenance
 
-													</div>
+												</div>
+												<div class="project__item__hover__item"><span>
 
-													<div v-if="project.client" class="project__item__hover__item">
+														DURATION:
 
-														<span>
+													</span> 12 Months
 
-															CLIENT:
+												</div>
+												<div class="project__item__hover__item"><span>
 
-														</span> {{ project.client }}
+														DATE OF COMPLETION:
 
-													</div>
+													</span> October 2022
 
-													<div v-if="project.scope" class="project__item__hover__item">
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/zafarana-50-mwp-photovoltaic-solar-plant/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
 
-														<span>
-
-															SCOPE:
-
-														</span> {{ project.scope }}
-
-													</div>
-
-													<div v-if="project.duration" class="project__item__hover__item">
-
-														<span>
-
-															DURATION:
-
-														</span> {{ project.duration }}
-
-													</div>
-
-													<div v-if="project.date" class="project__item__hover__item">
-
-														<span>
-
-															DATE OF COMPLETION:
-
-														</span> {{ project.date }}
-
-													</div>
-
-													<div v-if="project.link" class="projects__map__popup__link">
-
-														<a class="btn btn__arrow btn__arrow--border"
-															v-bind:href="project.link">
-
-															<span class="btn__text">
-
-																DISCOVER PROJECT
-															</span>
-
-															<span class="btn__icon">
-
-																<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-																	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-																	y="0px" width="56.833px" height="32.416px"
-																	viewbox="0 0 56.833 32.416"
-																	enable-background="new 0 0 56.833 32.416"
-																	xml:space="preserve">
-																	<path fill="none" stroke="#231F20" stroke-width="3"
-																		stroke-linecap="round" stroke-linejoin="round"
-																		d="M40.75,2.19l14.142,14.143
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
 	L40.75,30.476 M54.892,16.333H2.417"></path>
-																</svg>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/new-alamein-city-alamein-downtown-1/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2022/12/new-alamein-city-downtown-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">New Alamein City, Alamein Downtown 1
+												</h3>
+												<div class="project__item__location">EGYPT</div>
+												<div class="project__item__industry">BUILDINGS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">New Alamein City, Alamein
+													Downtown 1</div>
+												<div class="project__item__hover__item"><span>
 
-															</span>
+														PROJECT NAME:
 
-														</a>
-
-													</div>
+													</span> New Alamein City, Alamein Downtown 1
 
 												</div>
-											</div>
+												<div class="project__item__hover__item"><span>
 
+														LOCATION:
+
+													</span> New Alamein City, Egypt
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Ministry of Housing, Utilities Urban Development
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Construction
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 60 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> May 2023
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/new-alamein-city-alamein-downtown-1/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/city-center-almaza/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2022/12/city-center-almaza-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">City Center Almaza</h3>
+												<div class="project__item__location">EGYPT</div>
+												<div class="project__item__industry">BUILDINGS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">City Center Almaza</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> City Center Almaza
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Cairo, Egypt
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Majid Al Futtaim Properties Egypt SAE
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Procurement and Construction
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 48 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> November 2019
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/city-center-almaza/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/king-hussein-cancer-center-outpatient-tower-east-tower/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2022/12/king-hussein-cancer-center-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">King Hussein Cancer Center Outpatient
+													Tower &amp; East Tower</h3>
+												<div class="project__item__location">JORDAN</div>
+												<div class="project__item__industry">BUILDINGS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">King Hussein Cancer Center
+													Outpatient Tower &amp; East Tower</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> King Hussein Cancer Center Outpatient Tower &amp; East Tower
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Amman, Jordan
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> King Hussein Cancer Foundation
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Construction
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 36 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> March 2017
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/king-hussein-cancer-center-outpatient-tower-east-tower/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/south-helwan-3x650-mw-thermal-power-plant/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/09/south-helwan-thermal-power-plant-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">South Helwan Thermal Power Plant</h3>
+												<div class="project__item__location">EGYPT</div>
+												<div class="project__item__industry">POWER</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">South Helwan Thermal Power
+													Plant</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> South Helwan Thermal Power Plant
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Helwan, Egypt
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Upper Egypt Electricity Production Company (UEEPC)
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Underground utilities, foundations and MEP works for
+													buildings.
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 52 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> March 2019
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/south-helwan-3x650-mw-thermal-power-plant/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/abu-dhabi-plaza-2/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/09/abu-dhabi-plaza-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Abu Dhabi Plaza</h3>
+												<div class="project__item__location">KAZAKHSTAN</div>
+												<div class="project__item__industry">BUILDINGS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Abu Dhabi Plaza</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Abu Dhabi Plaza
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Astana, Kazakhstan
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Aldar EuroAsia LLP
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Design, Procurement, Construction
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 84 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> Expected March 2020
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/abu-dhabi-plaza-2/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/jazan-refinery/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/09/jazan-refinery-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Jazan Refinery, Package 4 &amp; 5, Tank
+													Farms</h3>
+												<div class="project__item__location">SAUDI ARABIA</div>
+												<div class="project__item__industry">PROCESS PLANTS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Jazan Refinery, Package 4 &amp;
+													5, Tank Farms</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Jazan Refinery, Package 4 &amp; 5, Tank Farms
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Jazan, Kingdom of Saudi Arabia
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Saudi Aramco
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Construction
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 46 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> September 2017
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/jazan-refinery/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/saraya-aqaba-jordan/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/09/saraya-aqaba-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Saraya Aqaba</h3>
+												<div class="project__item__location">JORDAN</div>
+												<div class="project__item__industry">BUILDINGS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Saraya Aqaba</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Saraya Aqaba
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Aqaba, Jordan
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Saraya Aqaba Real Estate Development Co. PSC
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Engineering, Procurement, Construction and Commissioning
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 80 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> March 2020
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/saraya-aqaba-jordan/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/alba-phase-ii-expansion/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/alba-phase-2-expansion-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Alba Phase II Expansion</h3>
+												<div class="project__item__location">EQUATORIAL GUINEA</div>
+												<div class="project__item__industry">PROCESS PLANTS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Alba Phase II Expansion</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Alba Phase II Expansion
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Bioko Island, Equatorial Guinea
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Marathon E.G. Production Ltd.
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Construction and Commissioning of a gas and NGL plants
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 24 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> December 2004
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/alba-phase-ii-expansion/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/aplng-pipelines/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/aplng-pipelines-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Australia Pacific LNG Pipelines</h3>
+												<div class="project__item__location">AUSTRALIA</div>
+												<div class="project__item__industry">PIPELINES</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Australia Pacific LNG Pipelines
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Australia Pacific LNG Pipelines
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Queensland, Australia
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Australia Pacific LNG Pty Ltd. (APLNG)
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Engineering, Procurement, Construction &amp; Commissioning
+													of a 530 km main gas pipelines and 150 km of smaller size pipelines.
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 34 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> May 2014
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/aplng-pipelines/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/baku-tbilisi-ceyhan-oil-pipeline-south-caucasus-gas-export-pipeline-2/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/baku-tbilisi-ceyhan-oil-pipeline-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Baku-Tbilisi-Ceyhan Oil Pipeline &amp;
+													South Caucasus Gas Export Pipeline</h3>
+												<div class="project__item__location">AZERBAIJAN</div>
+												<div class="project__item__industry">PIPELINES</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Baku-Tbilisi-Ceyhan Oil
+													Pipeline &amp; South Caucasus Gas Export Pipeline</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Baku-Tbilisi-Ceyhan Oil Pipeline &amp; South Caucasus Gas
+													Export Pipeline
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Azerbaijan
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Baku - Tbilisi - Ceyhan Pipeline Co. Ltd. (BTC) &amp; South
+													Caucasus Pipeline Co. (SCP)
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Engineering, Procurement, Construction &amp; Commissioning
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> BTC 37 Months, SCP 19 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> March 2006
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/baku-tbilisi-ceyhan-oil-pipeline-south-caucasus-gas-export-pipeline-2/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/batinah-expressway-package-6/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/batinah-expressway-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Batinah Expressway, Package 6</h3>
+												<div class="project__item__location">OMAN</div>
+												<div class="project__item__industry">TRANSPORTATION</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Batinah Expressway, Package 6
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Batinah Expressway, Package 6
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Oman
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Ministry of Transport &amp; Communications, Directorate
+													General of Roads and Land Transport
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> construction of an expressway class road 45 km with a dual 2
+													x 4-lane configuration through the Batinah region.
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 49 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> November 2017
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/batinah-expressway-package-6/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/borouge-ethylene-cracker-2/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/borouge-ethylene-cracker-2-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Borouge Ethylene Cracker 2</h3>
+												<div class="project__item__location">UNITED ARAB EMIRATES</div>
+												<div class="project__item__industry">PROCESS PLANTS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Borouge Ethylene Cracker 2
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Borouge Ethylene Cracker 2
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Ruwais, Abu Dhabi, UAE
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Abu Dhabi Polymers Co. (Borouge)
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Construction of the largest Ethylene Cracker in the world
+													(1.4 MM ton/year).
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 36 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> May 2010
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/borouge-ethylene-cracker-2/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/erwda-building-al-mamoura-new-office-building/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/erwda-building-al-mamoura-new-office-building-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">ERWDA Building &amp; Al Mamoura New
+													Office Building</h3>
+												<div class="project__item__location">UNITED ARAB EMIRATES</div>
+												<div class="project__item__industry">BUILDINGS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">ERWDA Building &amp; Al Mamoura
+													New Office Building</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> ERWDA Building &amp; Al Mamoura New Office Building
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Abu Dhabi, UAE
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Al Dar Properties PJSC
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Mubadala Environmental Research &amp; Wildlife Development
+													Agency (ERWDA) Building - Tower A &amp; Al Mamoura New Office
+													Building - Tower B
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 45 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> April 2009
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/erwda-building-al-mamoura-new-office-building/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/karachaganak-main-works/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/karachaganak-main-works-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Karachaganak Main Works</h3>
+												<div class="project__item__location">KAZAKHSTAN</div>
+												<div class="project__item__industry">PROCESS PLANTS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Karachaganak Main Works</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Karachaganak Main Works
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Kazakhstan
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Karachaganak Petroleum Operating BV
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Construction of a gas processing complex and export pipeline
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 42 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> December 2003
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/karachaganak-main-works/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/lusail-sport-club-multi-purpose-hall/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/lusail-sport-club-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Lusail Sports Club, Multi-Purpose Hall
+												</h3>
+												<div class="project__item__location">QATAR</div>
+												<div class="project__item__industry">SPORTS FACILITIES</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Lusail Sports Club,
+													Multi-Purpose Hall</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Lusail Sports Club, Multi-Purpose Hall
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Lusail, Qatar
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Ministry of Culture &amp; Sports
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Construction
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 36 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> September 2015
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/lusail-sport-club-multi-purpose-hall/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/pearl-gtl/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/pearl-gtl-overview-500_500.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">Pearl GTL</h3>
+												<div class="project__item__location">QATAR</div>
+												<div class="project__item__industry">PROCESS PLANTS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">Pearl GTL</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> Pearl GTL
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Ras Laffan, Qatar
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Qatar Shell GTL Ltd.
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> The world's largest gas-to-liquids (GTL) project.
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 56 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> December 2011
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/pearl-gtl/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="grid__item mob--one-half lap--one-third">
+									<div class="project__item">
+										<div class="project__item__inner"><a
+												href="https://www.ccc.net/project/rasgas-onshore-onplot-lng-expansion-trains-6-7/"
+												class="project__item__link"></a>
+											<div class="project__item__bg"
+												style="background-image: url(&quot;https://www.ccc.net/wp-content/uploads/2018/06/rasgas-onshore-onplot-lng-expansion-banner-900_400.jpg&quot;);">
+											</div>
+											<div class="project__item__content">
+												<h3 class="project__item__title">RasGas Onshore/Onplot LNG Expansion
+													(Trains 6 &amp; 7)</h3>
+												<div class="project__item__location">QATAR</div>
+												<div class="project__item__industry">PROCESS PLANTS</div>
+											</div>
+										</div>
+										<div class="project__item__hover">
+											<div class="project__item__hover__inner">
+												<div class="project__item__hover__title">RasGas Onshore/Onplot LNG
+													Expansion (Trains 6 &amp; 7)</div>
+												<div class="project__item__hover__item"><span>
+
+														PROJECT NAME:
+
+													</span> RasGas Onshore/Onplot LNG Expansion (Trains 6 &amp; 7)
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														LOCATION:
+
+													</span> Ras Laffan, Qatar
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														CLIENT:
+
+													</span> Ras Laffan Liquefied Natural Gas Co. (RasGas)
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														SCOPE:
+
+													</span> Construction of one of the largest LNG Trains in the world
+													(7.8 MTPA)
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DURATION:
+
+													</span> 48 Months
+
+												</div>
+												<div class="project__item__hover__item"><span>
+
+														DATE OF COMPLETION:
+
+													</span> December 2009
+
+												</div>
+												<div class="projects__map__popup__link"><a
+														href="https://www.ccc.net/project/rasgas-onshore-onplot-lng-expansion-trains-6-7/"
+														class="btn btn__arrow btn__arrow--border"><span
+															class="btn__text">
+
+															DISCOVER PROJECT
+														</span> <span class="btn__icon"><svg version="1.1"
+																xmlns="http://www.w3.org/2000/svg"
+																xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+																y="0px" width="56.833px" height="32.416px"
+																viewBox="0 0 56.833 32.416"
+																enable-background="new 0 0 56.833 32.416"
+																xml:space="preserve">
+																<path fill="none" stroke="#231F20" stroke-width="3"
+																	stroke-linecap="round" stroke-linejoin="round" d="M40.75,2.19l14.142,14.143
+	L40.75,30.476 M54.892,16.333H2.417"></path>
+															</svg></span></a></div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+						</div> <!---->
+						<div class="projects__more"><span href="#" class="btn btn__arrow btn__arrow--solid"><span
+									class="btn__text">
 
-							<transition name="fade">
-								<div v-if="filterLoading" class="projects__loading fs-m-14">
-
-									LOADING...
-								</div>
-							</transition>
-
-							<transition name="fade">
-								<div v-if="morePages" class="projects__more">
-									<span href="#" v-on:click="loadNextPage" class="btn btn__arrow btn__arrow--solid">
-
-										<span class="btn__text">
-
-											LOAD MORE PROJECTS
-										</span>
-
-									</span>
-								</div>
-							</transition>
-
-						</div>
-					</transition>
-
+									LOAD MORE PROJECTS
+								</span></span></div>
+					</div>
 				</div>
 			</div>
-
 		</div>
-
 		<script type="text/x-template" id="select2-template">
 		<select>
 			<slot></slot>
 		</select>
 	</script>
-
 	</div>
-		<!--FOOTER-->
+
+	<!--FOOTER-->
 	<footer class="site-footer">
 
 		<div class="site__container">
