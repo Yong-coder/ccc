@@ -6,6 +6,26 @@
 		img.lazy {
 			min-height: 1px
 		}
+
+    @media only screen and (max-width: 600px) {
+        .site-header__cell img {
+            width: 80px;
+            height: 60px;
+        }
+    }
+	@media only screen and (min-width: 600px) and (max-width: 900px) {
+        .site-header__cell img {
+            width: 80px;
+            height: 60px;
+        }
+    }
+	@media only screen and (min-width: 900px) and (max-width: 1300px) {
+        .site-header__cell img {
+            width: 100px;
+            height: 80px;
+        }
+    }
+</style>
 	</style>
 	<link rel="preload" href="../wp-content/plugins/w3-total-cache/pub/js/lazyload.min.js" as="script">
 
@@ -116,7 +136,7 @@
 							<a href="../index.htm" rel="home" title="Atlantis Trading Group">
 								<!--Logo-->
 								<span class="site-header__logo__icon">
-									<img src="../wp-content/uploads/2024/02/Logo.png" width="120px" height="100px"
+									<img src="../wp-content/uploads/2024/02/logo.svg"
 										style="position: relative;">
 								</span>
 							</a>
@@ -131,18 +151,19 @@
 						<div class="site-header__cell">
 							<div class="menu--main">
 								<ul class="menu__list menu__list--level-0">
+									<li class="menu__item menu__item--has-children megamenu-home">
+										<span class="menu__link"><a href="../index.htm"
+											class="menu__link">HOME</a></span>
+									</li>
 									<li class="menu__item menu__item--has-children megamenu-about">
 
 										<span class="menu__link">ABOUT US</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
-												<a href="index.htm" class="menu__link">HOME</a>
+												<a href="../about/index.htm" class="menu__link">About Us</a>
 											</li>
 											<li class="menu__item">
-												<a href="../about/index.htm" class="menu__link">ABOUT US</a>
-											</li>
-											<li class="menu__item">
-												<a href="../ethics/index.htm" class="menu__link">CHAIRMAN'S MESSAGE</a>
+												<a href="../ethics/index.htm" class="menu__link">Chairman's Message</a>
 											</li>
 											<!--THE GROUP LOCATION-->
 											<!--History-->
@@ -161,7 +182,7 @@
 												</ul>
 											</li>
 											<li class="menu__item"> <!--Business Relations-->
-												<a href="../business-relations/index.htm" class="menu__link">CLIENTS</a>
+												<a href="../business-relations/index.htm" class="menu__link">Clients</a>
 											</li>
 										</ul>
 									</li>
@@ -237,7 +258,7 @@
 									</li>
 									
 									<li class="menu__item menu__item--has-children megamenu-careers">
-										<span class="menu__link">Careers</span>
+										<span class="menu__link">CAREERS</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
 												<a href="../why-work-with-us/index.htm" class="menu__link">Why Work With
@@ -248,7 +269,7 @@
 										</ul>
 									</li>
 									<li class="menu__item menu__item--has-children megamenu-sustainability">
-										<span class="menu__link">Sustainability</span>
+										<span class="menu__link">SUSTAINABILITY</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
 												<a href="../our-approach/index.htm" class="menu__link">Our Approach</a>
@@ -267,20 +288,20 @@
 
 										</ul>
 									</li>
+									<!--
 									<li class="menu__item menu__item--has-children megamenu-newsmedia">
 										<span class="menu__link">News &#038; Media</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item menu-item--news">
 												<a href="../latest-news/index.htm" class="menu__link">Latest News</a>
 											</li>
-											<!--Press Releases-->
 											<li class="menu__item">
 												<a href="../awards/index.htm" class="menu__link">Project Awards</a>
 											</li>
-											<!--Bulletin-->
-											<!--Video Gallery-->
+
 										</ul>
 									</li>
+									-->
 								</ul>
 							</div>
 			<!--Site Header Menu-->
@@ -309,36 +330,6 @@
 											</div>
 										</div>
 
-										<div class="grid__item one-half">
-											<div class="megamenu__first-level">
-												<div class="megamenu__menu__item megamenu__first-level__item">
-													OUR PEOPLE
-													<div class="megamenu__second-level">
-														<div class="megamenu__menu__item megamenu__second-level__item">
-															<a class="megamenu__menu__link"
-																href="../directors/index.htm">
-																Management Personnel
-															</a>
-														</div>
-
-														<div class="megamenu__menu__item megamenu__second-level__item">
-															<a class="megamenu__menu__link"
-																href="../senior-members/index.htm">
-																Technical Personnel
-															</a>
-														</div>
-													</div>
-												</div>
-												<!--Facts & Figures Location-->
-												<div class="megamenu__menu__item megamenu__first-level__item">
-													<a class="megamenu__menu__link"
-														href="../business-relations/index.htm">
-														<!--Business Relations-->
-														CLIENTS
-													</a>
-												</div>
-											</div>
-										</div>
 									</div>
 								</div>
 
@@ -481,7 +472,7 @@
 												<div class="megamenu__menu__item megamenu__first-level__item">
 													<a class="megamenu__menu__link"
 														href="../values-philosophy/index.htm">
-														Quality, Health, Safety and Environmental Policy
+														QUALITY, HEALTH, SAFETY AND ENVIRONMENTAL POLICY
 													</a>
 												</div>
 
@@ -503,7 +494,7 @@
 									</div>
 								</div>
 
-								<div class="megamenu__item" data-parent="megamenu-newsmedia">
+								<!--<div class="megamenu__item" data-parent="megamenu-newsmedia">
 									<div class="grid">
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
@@ -515,7 +506,6 @@
 												</div>
                         
 
-												<!--Press Releases-->
 
 												<div class="megamenu__menu__item megamenu__first-level__item">
 													<a class="megamenu__menu__link" href="../awards/index.htm">
@@ -525,7 +515,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>-->
+
 							</div>
 						</div>
 					</div>
@@ -727,18 +718,6 @@
 
 								</div>
 
-
-								<div class="internal-slider__item">
-
-
-									<img class="internal-slider__item__img lazy"
-										src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20600'%3E%3C/svg%3E"
-										data-src="../Atlantic Information/Project Achievement/Project-Achievement-3.png"
-										alt="Villa">
-
-
-
-								</div>
 
 
 
@@ -989,9 +968,6 @@
 
 						<div class="menu--footer">
 							<ul class="menu__list menu__list--level-0">
-								<li class="menu__item">
-									<a href="../latest-news/index.htm" class="menu__link">News &#038; Media</a>
-								</li>
 								<li class="menu__item">
 									<a href="../contact-us/index.htm" class="menu__link">Contact Us</a>
 								</li>
