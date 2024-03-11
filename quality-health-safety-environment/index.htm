@@ -6,6 +6,27 @@
 		img.lazy {
 			min-height: 1px
 		}
+
+		@media only screen and (max-width: 600px) {
+			.site-header__cell img {
+				width: 80px;
+				height: 60px;
+			}
+		}
+
+		@media only screen and (min-width: 600px) and (max-width: 900px) {
+			.site-header__cell img {
+				width: 80px;
+				height: 60px;
+			}
+		}
+
+		@media only screen and (min-width: 900px) and (max-width: 1300px) {
+			.site-header__cell img {
+				width: 100px;
+				height: 80px;
+			}
+		}
 	</style>
 	<link rel="preload" href="../wp-content/plugins/w3-total-cache/pub/js/lazyload.min.js" as="script">
 
@@ -72,8 +93,10 @@
 	<link rel="icon" href="../wp-content/uploads/2018/06/cropped-fav-32x32.png" sizes="32x32">
 	<link rel="icon" href="../wp-content/uploads/2018/06/cropped-fav-192x192.png" sizes="192x192">
 	<link rel="apple-touch-icon" href="../wp-content/uploads/2018/06/cropped-fav-180x180.png">
-	<meta name="msapplication-TileImage"
-		content="https://www.ccc.net/wp-content/uploads/2018/06/cropped-fav-270x270.png">
+	<meta
+		name="msapplication-TileImage"
+		content="../wp-content/uploads/2018/06/cropped-fav-270x270.png"
+	/>
 
 	<script data-cfasync="false"
 		id="ao_optimized_gfonts_webfontloader">(function () { var wf = document.createElement('script'); wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'; wf.type = 'text/javascript'; wf.async = 'true'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wf, s); })();</script>
@@ -101,89 +124,91 @@
 
 	</div>
 
+	<!--NAVBAR-->
 	<header class="site-header">
+
 
 		<div class="site__container">
 			<div class="site-header__wrapper">
-			  <div class="site-header__wrapper__bg"></div>
-	
-			  <div class="site-header__logo">
-				<div class="site-header__table">
-				  <div class="site-header__cell">
-	  
-					<a href="../index.htm" rel="home" title="Atlantis Trading Group">
-					  <!--Logo-->
-					  <span class="site-header__logo__icon">
-						<img src="../wp-content/uploads/2024/02/Logo.png" width="120px" height="100px"
-						  style="position: relative;">
-					  </span>
-					</a>
-	  
-				  </div>
+
+				<div class="site-header__wrapper__bg"></div>
+
+				<div class="site-header__logo">
+					<div class="site-header__table">
+						<div class="site-header__cell">
+
+							<a href="../index.htm" rel="home" title="Atlantis Trading Group">
+								<!--Logo-->
+								<span class="site-header__logo__icon">
+									<img src="../wp-content/uploads/2024/02/logo.svg"
+										style="position: relative;">
+								</span>
+							</a>
+
+						</div>
+					</div>
 				</div>
-			  </div>
-			  <!--Logo-->
 
-
-				<!--NAV BAR-->
+				<!--Site Header Menu--> <!--Mobile-->
 				<div class="site-header__menu">
 					<div class="site-header__table">
 						<div class="site-header__cell">
 							<div class="menu--main">
 								<ul class="menu__list menu__list--level-0">
+									<li class="menu__item menu__item--has-children megamenu-home">
+										<span class="menu__link"><a href="../index.htm"
+											class="menu__link">HOME</a></span>
+									</li>
 									<li class="menu__item menu__item--has-children megamenu-about">
 
 										<span class="menu__link">ABOUT US</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
-												<a href="index.htm" class="menu__link">HOME</a>
+												<a href="../about/index.htm" class="menu__link">About Us</a>
 											</li>
 											<li class="menu__item">
-												<a href="../about/index.htm" class="menu__link">About us</a>
-											</li>
-											<li class="menu__item">
-												<a href="../values-philosophy/index.htm" class="menu__link">Quality,
-													Health, Safety and Environmental Policy</a>
+												<a href="../chairman-message/index.htm" class="menu__link">Chairman's Message</a>
 											</li>
 											<!--THE GROUP LOCATION-->
 											<!--History-->
 											<li class="menu__item menu__item--has-children">
-												<span class="menu__link">Our People</span>
+												<span class="menu__link">OUR PEOPLE</span>
 												<ul class="menu__list menu__list--submenu menu__list--level-2">
 													<li class="menu__item">
-														<a href="../directors/index.htm" class="menu__link">Management
+														<a href="../management-personnel/index.htm" class="menu__link">Management
 															Personnel</a>
 													</li>
 													<li class="menu__item">
-														<a href="../senior-members/index.htm" class="menu__link">Technical
+														<a href="../technical-personnel/index.htm"
+															class="menu__link">Technical
 															Personnel</a>
 													</li>
 												</ul>
 											</li>
 											<li class="menu__item"> <!--Business Relations-->
-												<a href="../business-relations/index.htm" class="menu__link">CLIENTS</a>
+												<a href="../clients/index.htm" class="menu__link">Clients</a>
 											</li>
 										</ul>
 									</li>
 									<!--Expertise Location-->
 									<li class="menu__item menu__item--has-children megamenu-activities">
-										<span class="menu__link">Activities</span>
+										<span class="menu__link">ACTIVITIES</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item menu__item--has-children">
 												<span class="menu__link">COMPANY FACILITIES</span>
-												<!--Company Segments-->
+												
 												<ul class="menu__list menu__list--submenu menu__list--level-2">
 													<li class="menu__item">
-														<a href="../residential-commercial-buildings/index.htm"
+														<a href="../facilities-for-staffs-workers/index.htm"
 															class="menu__link">Facilities for Staffs & Workers</a>
-														<!--Buildings-->
 													</li>
 													<li class="menu__item">
-														<a href="../transportation/index.htm" class="menu__link">Workshop
+														<a href="../workshop-storage-facilities/index.htm"
+															class="menu__link">Workshop
 															and Storage Facilities</a> <!--Transportation-->
 													</li>
 													<li class="menu__item">
-														<a href="../sports-facilities/index.htm"
+														<a href="../transportation-and-heavy-equipment/index.htm"
 															class="menu__link">Transportation and Heavy Equipment
 															<!--Sport Facilities-->
 														</a>
@@ -191,7 +216,7 @@
 												</ul>
 											</li>
 											<li class="menu__item menu__item--has-children">
-												<span class="menu__link">Services</span>
+												<span class="menu__link">SERVICES</span>
 												<ul class="menu__list menu__list--submenu menu__list--level-2">
 													<li class="menu__item">
 														<a href="../construction-management/index.htm"
@@ -217,55 +242,70 @@
 											</li>
 										</ul>
 									</li>
-									<li class="menu__item menu-item--projects">
-										<a href="../projects/index.htm" class="menu__link">Projects</a>
+									<li class="menu__item menu__item--has-children megamenu-projects">
+										<span class="menu__link">PROJECTS</span>
+										<ul class="menu__list menu__list--submenu menu__list--level-1">
+											<li class="menu__item">
+												<a href="../project-achievement/index.htm" class="menu__link">Project Achievement</a>
+											</li>
+											<li class="menu__item">
+												<a href="../major-completed-projects/index.htm" class="menu__link">Major Completed Projects</a>
+											</li>
+											<li class="menu__item">
+												<a href="../major-on-going-projects/index.htm" class="menu__link">Major-On Going Projects
+													</a>
+											</li>
+											<!--Employment Opputunities-->
+											<!--Careers Empty Link-->
+										</ul>
 									</li>
+									
 									<li class="menu__item menu__item--has-children megamenu-careers">
-										<span class="menu__link">Careers</span>
+										<span class="menu__link">CAREERS</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
 												<a href="../why-work-with-us/index.htm" class="menu__link">Why Work With
-													US?</a>
+													Us?</a>
 											</li>
 											<!--Employment Opputunities-->
 											<!--Careers Empty Link-->
 										</ul>
 									</li>
 									<li class="menu__item menu__item--has-children megamenu-sustainability">
-										<span class="menu__link">Sustainability</span>
+										<span class="menu__link">SUSTAINABILITY</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
 												<a href="../our-approach/index.htm" class="menu__link">Our Approach</a>
 											</li>
 											<!--Sustainability-->
 											<li class="menu__item">
-												<a href="../ethics/index.htm" class="menu__link">Chairman Message</a>
+												<a href="../quality-health-safety-environment/index.htm" class="menu__link">Quality,
+													Health, Safety and Environmental Policy</a>
 											</li>
-											<!--Corporate Social Responsibility-->
-											<!--Diversity and Inclusion-->
-											<!--Health and Safety-->
-											<!--Quality and Continuous improvement-->
-											<!--Innovation-->
+											
 
 										</ul>
 									</li>
+									<!--
 									<li class="menu__item menu__item--has-children megamenu-newsmedia">
 										<span class="menu__link">News &#038; Media</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item menu-item--news">
-												<a href="../../latest-news/index.htm" class="menu__link">Latest News</a>
+												<a href="../latest-news/index.htm" class="menu__link">Latest News</a>
 											</li>
-											<!--Press Releases-->
 											<li class="menu__item">
 												<a href="../awards/index.htm" class="menu__link">Project Awards</a>
 											</li>
-											<!--Bulletin-->
-											<!--Video Gallery-->
+
 										</ul>
 									</li>
+									-->
 								</ul>
 							</div>
+			<!--Site Header Menu-->
 
+
+			<!--Link desktop-->
 							<div class="megamenu">
 								<div class="megamenu__item" data-parent="megamenu-about">
 									<div class="grid">
@@ -278,29 +318,30 @@
 												</div>
 
 												<div class="megamenu__menu__item megamenu__first-level__item">
-													<a class="megamenu__menu__link" href="../values-philosophy/index.htm">
-														Quality, Health, Safety and Environmental Policy
+													<a class="megamenu__menu__link"
+														href="../chairman-message/index.htm">
+														CHAIRMAN'S MESSAGE
 													</a>
 												</div>
 												<!--The group Location-->
 												<!--History-->
 											</div>
 										</div>
-
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
 												<div class="megamenu__menu__item megamenu__first-level__item">
 													OUR PEOPLE
 													<div class="megamenu__second-level">
 														<div class="megamenu__menu__item megamenu__second-level__item">
-															<a class="megamenu__menu__link" href="../directors/index.htm">
+															<a class="megamenu__menu__link"
+																href="../management-personnel/index.htm">
 																Management Personnel
 															</a>
 														</div>
 
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../senior-members/index.htm">
+																href="../technical-personnel/index.htm">
 																Technical Personnel
 															</a>
 														</div>
@@ -308,7 +349,8 @@
 												</div>
 												<!--Facts & Figures Location-->
 												<div class="megamenu__menu__item megamenu__first-level__item">
-													<a class="megamenu__menu__link" href="../business-relations/index.htm">
+													<a class="megamenu__menu__link"
+														href="../clients/index.htm">
 														<!--Business Relations-->
 														CLIENTS
 													</a>
@@ -323,26 +365,25 @@
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
 												<div class="megamenu__menu__item megamenu__first-level__item">
-													COMPANY FACILITIES <!--segments-->
+													COMPANY FACILITIES
 													<div class="megamenu__second-level">
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../residential-commercial-buildings/index.htm">
-																Facilities for Staffs & Workers <!--Buildings-->
+																href="../facilities-for-staffs-workers/index.htm">
+																Facilities for Staffs & Workers
 															</a>
 														</div>
 
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../transportation/index.htm">
-																Workshop and Storage Facilities <!--Transportation-->
+																href="../workshop-storage-facilities/index.htm">
+																Workshop and Storage Facilities
 															</a>
 														</div>
 
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../sports-facilities/index.htm">
-																<!--Sport Facilities-->
+																href="../transportation-and-heavy-equipment/index.htm">
 																Transportation and Heavy Equipment
 															</a>
 														</div>
@@ -398,12 +439,42 @@
 									</div>
 								</div>
 
+								<div class="megamenu__item" data-parent="megamenu-projects">
+									<div class="grid">
+										<div class="grid__item one-half">
+											<div class="megamenu__first-level">
+												<div class="megamenu__menu__item megamenu__first-level__item">
+													<a class="megamenu__menu__link"
+														href="../project-achievement/index.htm">
+														PROJECT ACHIEVEMENT
+													</a>
+												</div>
+												<div class="megamenu__menu__item megamenu__first-level__item">
+													<a class="megamenu__menu__link"
+														href="../major-completed-projects/index.htm">
+														MAJOR COMPLETED PROJECTS
+													</a>
+												</div>
+												<div class="megamenu__menu__item megamenu__first-level__item">
+													<a class="megamenu__menu__link"
+														href="../major-on-going-projects/index.htm">
+														MAJOR ON-GOING PROJECTS
+													</a>
+												</div>
+
+												<!--Employment Oppurtunities-->
+											</div>
+										</div>
+									</div>
+								</div>
+
 								<div class="megamenu__item" data-parent="megamenu-careers">
 									<div class="grid">
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
 												<div class="megamenu__menu__item megamenu__first-level__item">
-													<a class="megamenu__menu__link" href="../why-work-with-us/index.htm">
+													<a class="megamenu__menu__link"
+														href="../why-work-with-us/index.htm">
 														WHY WORK WITH ATLANTIS
 													</a>
 												</div>
@@ -425,40 +496,33 @@
 												</div>
 
 												<div class="megamenu__menu__item megamenu__first-level__item">
-													<a class="megamenu__menu__link" href="../ethics/index.htm">
-														Chairman Message
+													<a class="megamenu__menu__link"
+														href="../quality-health-safety-environment/index.htm">
+														QUALITY, HEALTH, SAFETY AND ENVIRONMENTAL POLICY
 													</a>
 												</div>
-
-												<!--Corporate Social Responsibility Location-->
-												<!--Diversity and Inclusion-->
-
 											</div>
 										</div>
 
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
-												<!--Health and Safety-->
-												<!--Quality and Continuous improvement-->
-												<!--Local Value Creation-->
-												<!--Innovation-->
 											</div>
 										</div>
 									</div>
 								</div>
 
-								<div class="megamenu__item" data-parent="megamenu-newsmedia">
+								<!--<div class="megamenu__item" data-parent="megamenu-newsmedia">
 									<div class="grid">
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
 												<div
 													class="megamenu__menu__item megamenu__first-level__item menu-item--news">
-													<a class="megamenu__menu__link" href="../../latest-news/index.htm">
+													<a class="megamenu__menu__link" href="../latest-news/index.htm">
 														NEWS
 													</a>
 												</div>
+                        
 
-												<!--Press Releases-->
 
 												<div class="megamenu__menu__item megamenu__first-level__item">
 													<a class="megamenu__menu__link" href="../awards/index.htm">
@@ -468,12 +532,12 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>-->
+
 							</div>
 						</div>
 					</div>
 				</div>
-				<!--NAV BAR-->
 
 				<div class="site-header__burger">
 					<span></span>
@@ -484,8 +548,10 @@
 
 			</div>
 		</div>
+		<!--Link-->
 
 	</header>
+	<!--Navbar-->
 	<div class="site-header__search__box">
 		<div class="site__container">
 			<div class="site-header__search__box__inner">
@@ -535,7 +601,7 @@
 			<div class="cmp-hero__content">
 
 				<div class="cmp-hero__title">
-Quality, Health, Safety and Environmental Policy
+					Quality, Health, Safety and Environmental Policy
 
 
 				</div>
@@ -608,7 +674,9 @@ Quality, Health, Safety and Environmental Policy
 
 									<div class="cmp-main-content__quote__box__text fs-30">
 
-										Atlantic Trad. Group W.L.L. was established in 2003 as MEP Company with the partnership of Sky Holding Group Chairman Mr. Abdulaziz Bin Ahmed Al Misnad and Eng. Mohammed Nassar.
+										Atlantic Trad. Group W.L.L. was established in 2003 as MEP Company with the
+										partnership of Sky Holding Group Chairman Mr. Abdulaziz Bin Ahmed Al Misnad and
+										Eng. Mohammed Nassar.
 									</div>
 
 									<div
@@ -638,31 +706,52 @@ Quality, Health, Safety and Environmental Policy
 
 
 							<div class="cmp-main-content__quote__text ">
-										<p>
-											Atlantis Trading Group is committed to implementing and maintaining a Quality, Occupational Health, Safety, and Environmental Management System that continually improves effectiveness and performance, providing products and services that meet the requirements of our internal and external customers, applicable standards, and comply with all relevant legal and regulatory requirements.
-											<br><br>
+								<p>
+									Atlantis Trading Group is committed to implementing and maintaining a Quality,
+									Occupational Health, Safety, and Environmental Management System that continually
+									improves effectiveness and performance, providing products and services that meet
+									the requirements of our internal and external customers, applicable standards, and
+									comply with all relevant legal and regulatory requirements.
+									<br><br>
 
-											Locally renowned as an integrated contractor, Unique Group has established a QHSE Policy and Management System that adheres to ISO 9001, OHSAS 18001 & ISO 14001 standards, which apply to all our operations, activities, and services.
-											<br><br>
+									Locally renowned as an integrated contractor, Unique Group has established a QHSE
+									Policy and Management System that adheres to ISO 9001, OHSAS 18001 & ISO 14001
+									standards, which apply to all our operations, activities, and services.
+									<br><br>
 
-											Atlantis Trading Group promotes a positive culture based on passionate QHSE leadership. We are firmly committed to the prevention of injury and ill health of all persons within our workplace, and to minimizing our environmental footprint through pollution prevention practices.
-											<br><br>
+									Atlantis Trading Group promotes a positive culture based on passionate QHSE
+									leadership. We are firmly committed to the prevention of injury and ill health of
+									all persons within our workplace, and to minimizing our environmental footprint
+									through pollution prevention practices.
+									<br><br>
 
 
-											<h2>OUR WAYS</h2>
-											
-											* Providing adequate resources to establish, implement, maintain and continually improve the QHSE Management System. <br>
-											* Develop and sustain a culture of routinely doing things right and doing them better, adopting best practices, while building successful relationships both internally and externally.<br>
-											* Providing a safe working environment to all employees, wherever we work.<br>
-											* Identifying, assessing the risks and hazards associated with Occupational Health, Safety, and Environment in the workplace, and taking action to prevent, reduce or control them to an acceptable level.<br>
-											* Promoting ecological sustainability through waste reduction, reuse, and recycling opportunities.<br>
-											* Empowering employees to raise QHSE concerns and effectively managing the necessitated actions.<br>
-											* Empowering employees to stop and challenge any work that is considered unsafe or not in line with this QHSE policy, relevant standards and procedures.<br>
-											* Enhancing the competency of our employees through knowledge sharing, training and motivation.<br>
-											* Establishing, reviewing, and reporting publicly on QHSE performance, measured against objectives and targets in line with this policy.<br>
-											* Ensuring the management system is integrated throughout all parts of our business processes, and is driving continuous improvement.<br>
-											* Communicating this policy to personnel at all levels within the organization, the members of the public and other interested parties on request.<br>
-										</p>
+								<h2>OUR WAYS</h2>
+
+								* Providing adequate resources to establish, implement, maintain and continually improve
+								the QHSE Management System. <br>
+								* Develop and sustain a culture of routinely doing things right and doing them better,
+								adopting best practices, while building successful relationships both internally and
+								externally.<br>
+								* Providing a safe working environment to all employees, wherever we work.<br>
+								* Identifying, assessing the risks and hazards associated with Occupational Health,
+								Safety, and Environment in the workplace, and taking action to prevent, reduce or
+								control them to an acceptable level.<br>
+								* Promoting ecological sustainability through waste reduction, reuse, and recycling
+								opportunities.<br>
+								* Empowering employees to raise QHSE concerns and effectively managing the necessitated
+								actions.<br>
+								* Empowering employees to stop and challenge any work that is considered unsafe or not
+								in line with this QHSE policy, relevant standards and procedures.<br>
+								* Enhancing the competency of our employees through knowledge sharing, training and
+								motivation.<br>
+								* Establishing, reviewing, and reporting publicly on QHSE performance, measured against
+								objectives and targets in line with this policy.<br>
+								* Ensuring the management system is integrated throughout all parts of our business
+								processes, and is driving continuous improvement.<br>
+								* Communicating this policy to personnel at all levels within the organization, the
+								members of the public and other interested parties on request.<br>
+								</p>
 							</div>
 
 						</div>
@@ -698,8 +787,7 @@ Quality, Health, Safety and Environmental Policy
 							data-bg="url( '../wp-content/uploads/2024/02/logo-bl.png' )">
 
 
-							<a href="../wp-content/uploads/2024/02/CR1.pdf" target="_blank"
-								rel="nofollow">
+							<a href="../wp-content/uploads/2024/02/CR1.pdf" target="_blank" rel="nofollow">
 
 
 								<img class="lazy"
@@ -724,8 +812,7 @@ Quality, Health, Safety and Environmental Policy
 							data-bg="url( '../wp-content/uploads/2024/02/logo-bl.png' )">
 
 
-							<a href="../wp-content/uploads/2024/02/CR2.pdf" target="_blank"
-								rel="nofollow">
+							<a href="../wp-content/uploads/2024/02/CR2.pdf" target="_blank" rel="nofollow">
 
 
 								<img class="lazy"
@@ -750,8 +837,7 @@ Quality, Health, Safety and Environmental Policy
 							data-bg="url( '../wp-content/uploads/2024/02/logo-bl.png' )">
 
 
-							<a href="../wp-content/uploads/2024/02/CR3.pdf" target="_blank"
-								rel="nofollow">
+							<a href="../wp-content/uploads/2024/02/CR3.pdf" target="_blank" rel="nofollow">
 
 
 								<img class="lazy"
@@ -784,9 +870,6 @@ Quality, Health, Safety and Environmental Policy
 						<div class="menu--footer">
 							<ul class="menu__list menu__list--level-0">
 								<li class="menu__item">
-									<a href="../latest-news/index.htm" class="menu__link">News &#038; Media</a>
-								</li>
-								<li class="menu__item">
 									<a href="../contact-us/index.htm" class="menu__link">Contact Us</a>
 								</li>
 							</ul>
@@ -814,7 +897,7 @@ Quality, Health, Safety and Environmental Policy
 
 							<div class="site-footer__social__item site-footer__social__item--linkedin">
 
-								<a href="https://gr.linkedin.com/company/consolidated-contractors-international-company"
+								<a href="#"
 									target="_blank">
 
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -839,7 +922,7 @@ Quality, Health, Safety and Environmental Policy
 
 							<div class="site-footer__social__item site-footer__social__item--youtube">
 
-								<a href="https://www.youtube.com/channel/UCIZhkDY_vcLxizfC7H8uDbg" target="_blank">
+								<a href="#" target="_blank">
 
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
 										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="328.82px"
@@ -917,6 +1000,7 @@ Quality, Health, Safety and Environmental Policy
 
 	</footer>
 	<!--Footer-->
+
 	<script defer=""
 		src="data:text/javascript;base64,DQogICAgICAgICAgICAoIGZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgICAgICB2YXIgaGVhZCA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCAnaGVhZCcgKVswXTsNCiAgICAgICAgICAgICAgICB2YXIgc3R5bGVUZW1wbGF0ZXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCAnc2NyaXB0LmNzcy1jb2RlLWNvbnRhaW5lcicgKTsNCiAgICAgICAgICAgICAgICBmb3IgKCBpID0gMDsgaSA8IHN0eWxlVGVtcGxhdGVzLmxlbmd0aDsgaSsrICkgew0KICAgICAgICAgICAgICAgICAgICB0cnkgew0KICAgICAgICAgICAgICAgICAgICAgICAgaGVhZC5pbnNlcnRBZGphY2VudEhUTUwoICdiZWZvcmVlbmQnLCBzdHlsZVRlbXBsYXRlc1tpXS5pbm5lckhUTUwgKTsNCiAgICAgICAgICAgICAgICAgICAgfSBjYXRjaCAoIGV4ICkgew0KICAgICAgICAgICAgICAgICAgICAgICAgY29uc29sZS5sb2coIGV4ICk7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9ICkoKTsNCiAgICAgICAg"></script>
 	<script defer="" type='text/javascript'

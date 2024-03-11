@@ -6,6 +6,27 @@
 		img.lazy {
 			min-height: 1px
 		}
+
+		@media only screen and (max-width: 600px) {
+			.site-header__cell img {
+				width: 80px;
+				height: 60px;
+			}
+		}
+
+		@media only screen and (min-width: 600px) and (max-width: 900px) {
+			.site-header__cell img {
+				width: 80px;
+				height: 60px;
+			}
+		}
+
+		@media only screen and (min-width: 900px) and (max-width: 1300px) {
+			.site-header__cell img {
+				width: 100px;
+				height: 80px;
+			}
+		}
 	</style>
 	<link rel="preload" href="../wp-content/plugins/w3-total-cache/pub/js/lazyload.min.js" as="script">
 
@@ -64,10 +85,7 @@
 	<link rel="icon" href="../wp-content/uploads/2018/06/cropped-fav-32x32.png" sizes="32x32">
 	<link rel="icon" href="../wp-content/uploads/2018/06/cropped-fav-192x192.png" sizes="192x192">
 	<link rel="apple-touch-icon" href="../wp-content/uploads/2018/06/cropped-fav-180x180.png">
-	<meta
-      name="msapplication-TileImage"
-      content="../wp-content/uploads/2018/06/cropped-fav-270x270.png"
-    />
+	<meta name="msapplication-TileImage" content="../wp-content/uploads/2018/06/cropped-fav-270x270.png" />
 
 	<script data-cfasync="false"
 		id="ao_optimized_gfonts_webfontloader">(function () { var wf = document.createElement('script'); wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'; wf.type = 'text/javascript'; wf.async = 'true'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wf, s); })();</script>
@@ -94,8 +112,8 @@
 		</div>
 
 	</div>
-	  <!--NAVBAR-->
-	  <header class="site-header">
+	<!--NAVBAR-->
+	<header class="site-header">
 
 
 		<div class="site__container">
@@ -110,8 +128,7 @@
 							<a href="../index.htm" rel="home" title="Atlantis Trading Group">
 								<!--Logo-->
 								<span class="site-header__logo__icon">
-									<img src="../wp-content/uploads/2024/02/Logo.png" width="120px" height="100px"
-										style="position: relative;">
+									<img src="../wp-content/uploads/2024/02/logo.svg" style="position: relative;">
 								</span>
 							</a>
 
@@ -125,18 +142,20 @@
 						<div class="site-header__cell">
 							<div class="menu--main">
 								<ul class="menu__list menu__list--level-0">
+									<li class="menu__item menu__item--has-children megamenu-home">
+										<span class="menu__link"><a href="../index.htm"
+												class="menu__link">HOME</a></span>
+									</li>
 									<li class="menu__item menu__item--has-children megamenu-about">
 
 										<span class="menu__link">ABOUT US</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
-												<a href="index.htm" class="menu__link">HOME</a>
+												<a href="../about/index.htm" class="menu__link">About Us</a>
 											</li>
 											<li class="menu__item">
-												<a href="../about/index.htm" class="menu__link">ABOUT US</a>
-											</li>
-											<li class="menu__item">
-												<a href="../ethics/index.htm" class="menu__link">CHAIRMAN'S MESSAGE</a>
+												<a href="../chairman-message/index.htm" class="menu__link">Chairman's
+													Message</a>
 											</li>
 											<!--THE GROUP LOCATION-->
 											<!--History-->
@@ -144,18 +163,19 @@
 												<span class="menu__link">OUR PEOPLE</span>
 												<ul class="menu__list menu__list--submenu menu__list--level-2">
 													<li class="menu__item">
-														<a href="../directors/index.htm" class="menu__link">Management
+														<a href="../management-personnel/index.htm"
+															class="menu__link">Management
 															Personnel</a>
 													</li>
 													<li class="menu__item">
-														<a href="../senior-members/index.htm"
+														<a href="../technical-personnel/index.htm"
 															class="menu__link">Technical
 															Personnel</a>
 													</li>
 												</ul>
 											</li>
 											<li class="menu__item"> <!--Business Relations-->
-												<a href="../business-relations/index.htm" class="menu__link">CLIENTS</a>
+												<a href="../clients/index.htm" class="menu__link">Clients</a>
 											</li>
 										</ul>
 									</li>
@@ -165,20 +185,19 @@
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item menu__item--has-children">
 												<span class="menu__link">COMPANY FACILITIES</span>
-												<!--Company Segments-->
+
 												<ul class="menu__list menu__list--submenu menu__list--level-2">
 													<li class="menu__item">
-														<a href="../residential-commercial-buildings/index.htm"
+														<a href="../facilities-for-staffs-workers/index.htm"
 															class="menu__link">Facilities for Staffs & Workers</a>
-														<!--Buildings-->
 													</li>
 													<li class="menu__item">
-														<a href="../transportation/index.htm"
+														<a href="../workshop-storage-facilities/index.htm"
 															class="menu__link">Workshop
 															and Storage Facilities</a> <!--Transportation-->
 													</li>
 													<li class="menu__item">
-														<a href="../sports-facilities/index.htm"
+														<a href="../transportation-and-heavy-equipment/index.htm"
 															class="menu__link">Transportation and Heavy Equipment
 															<!--Sport Facilities-->
 														</a>
@@ -213,22 +232,28 @@
 										</ul>
 									</li>
 									<li class="menu__item menu__item--has-children megamenu-projects">
-										<span class="menu__link">Projects</span>
+										<span class="menu__link">PROJECTS</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
-												<a href="../major-completed-projects/index.htm" class="menu__link">Major Completed Projects</a>
+												<a href="../project-achievement/index.htm" class="menu__link">Project
+													Achievement</a>
 											</li>
 											<li class="menu__item">
-												<a href="../major-on-going-projects/index.htm" class="menu__link">Major-On Going Projects
-													</a>
+												<a href="../major-completed-projects/index.htm" class="menu__link">Major
+													Completed Projects</a>
+											</li>
+											<li class="menu__item">
+												<a href="../major-on-going-projects/index.htm"
+													class="menu__link">Major-On Going Projects
+												</a>
 											</li>
 											<!--Employment Opputunities-->
 											<!--Careers Empty Link-->
 										</ul>
 									</li>
-									
+
 									<li class="menu__item menu__item--has-children megamenu-careers">
-										<span class="menu__link">Careers</span>
+										<span class="menu__link">CAREERS</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
 												<a href="../why-work-with-us/index.htm" class="menu__link">Why Work With
@@ -239,45 +264,41 @@
 										</ul>
 									</li>
 									<li class="menu__item menu__item--has-children megamenu-sustainability">
-										<span class="menu__link">Sustainability</span>
+										<span class="menu__link">SUSTAINABILITY</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item">
 												<a href="../our-approach/index.htm" class="menu__link">Our Approach</a>
 											</li>
 											<!--Sustainability-->
 											<li class="menu__item">
-												<a href="../values-philosophy/index.htm" class="menu__link">Quality,
+												<a href="../quality-health-safety-environment/index.htm"
+													class="menu__link">Quality,
 													Health, Safety and Environmental Policy</a>
 											</li>
-											
-											<!--Corporate Social Responsibility-->
-											<!--Diversity and Inclusion-->
-											<!--Health and Safety-->
-											<!--Quality and Continuous improvement-->
-											<!--Innovation-->
+
 
 										</ul>
 									</li>
+									<!--
 									<li class="menu__item menu__item--has-children megamenu-newsmedia">
 										<span class="menu__link">News &#038; Media</span>
 										<ul class="menu__list menu__list--submenu menu__list--level-1">
 											<li class="menu__item menu-item--news">
 												<a href="../latest-news/index.htm" class="menu__link">Latest News</a>
 											</li>
-											<!--Press Releases-->
 											<li class="menu__item">
 												<a href="../awards/index.htm" class="menu__link">Project Awards</a>
 											</li>
-											<!--Bulletin-->
-											<!--Video Gallery-->
+
 										</ul>
 									</li>
+									-->
 								</ul>
 							</div>
-			<!--Site Header Menu-->
+							<!--Site Header Menu-->
 
 
-			<!--Link desktop-->
+							<!--Link desktop-->
 							<div class="megamenu">
 								<div class="megamenu__item" data-parent="megamenu-about">
 									<div class="grid">
@@ -291,7 +312,7 @@
 
 												<div class="megamenu__menu__item megamenu__first-level__item">
 													<a class="megamenu__menu__link"
-														href="../ethics/index.htm">
+														href="../chairman-message/index.htm">
 														CHAIRMAN'S MESSAGE
 													</a>
 												</div>
@@ -299,7 +320,6 @@
 												<!--History-->
 											</div>
 										</div>
-
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
 												<div class="megamenu__menu__item megamenu__first-level__item">
@@ -307,14 +327,14 @@
 													<div class="megamenu__second-level">
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../directors/index.htm">
+																href="../management-personnel/index.htm">
 																Management Personnel
 															</a>
 														</div>
 
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../senior-members/index.htm">
+																href="../technical-personnel/index.htm">
 																Technical Personnel
 															</a>
 														</div>
@@ -322,8 +342,7 @@
 												</div>
 												<!--Facts & Figures Location-->
 												<div class="megamenu__menu__item megamenu__first-level__item">
-													<a class="megamenu__menu__link"
-														href="../business-relations/index.htm">
+													<a class="megamenu__menu__link" href="../clients/index.htm">
 														<!--Business Relations-->
 														CLIENTS
 													</a>
@@ -338,26 +357,25 @@
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
 												<div class="megamenu__menu__item megamenu__first-level__item">
-													COMPANY FACILITIES <!--segments-->
+													COMPANY FACILITIES
 													<div class="megamenu__second-level">
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../residential-commercial-buildings/index.htm">
-																Facilities for Staffs & Workers <!--Buildings-->
+																href="../facilities-for-staffs-workers/index.htm">
+																Facilities for Staffs & Workers
 															</a>
 														</div>
 
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../transportation/index.htm">
-																Workshop and Storage Facilities <!--Transportation-->
+																href="../workshop-storage-facilities/index.htm">
+																Workshop and Storage Facilities
 															</a>
 														</div>
 
 														<div class="megamenu__menu__item megamenu__second-level__item">
 															<a class="megamenu__menu__link"
-																href="../sports-facilities/index.htm">
-																<!--Sport Facilities-->
+																href="../transportation-and-heavy-equipment/index.htm">
 																Transportation and Heavy Equipment
 															</a>
 														</div>
@@ -419,6 +437,12 @@
 											<div class="megamenu__first-level">
 												<div class="megamenu__menu__item megamenu__first-level__item">
 													<a class="megamenu__menu__link"
+														href="../project-achievement/index.htm">
+														PROJECT ACHIEVEMENT
+													</a>
+												</div>
+												<div class="megamenu__menu__item megamenu__first-level__item">
+													<a class="megamenu__menu__link"
 														href="../major-completed-projects/index.htm">
 														MAJOR COMPLETED PROJECTS
 													</a>
@@ -465,30 +489,21 @@
 
 												<div class="megamenu__menu__item megamenu__first-level__item">
 													<a class="megamenu__menu__link"
-														href="../values-philosophy/index.htm">
-														Quality, Health, Safety and Environmental Policy
+														href="../quality-health-safety-environment/index.htm">
+														QUALITY, HEALTH, SAFETY AND ENVIRONMENTAL POLICY
 													</a>
 												</div>
-
-
-												<!--Corporate Social Responsibility Location-->
-												<!--Diversity and Inclusion-->
-
 											</div>
 										</div>
 
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
-												<!--Health and Safety-->
-												<!--Quality and Continuous improvement-->
-												<!--Local Value Creation-->
-												<!--Innovation-->
 											</div>
 										</div>
 									</div>
 								</div>
 
-								<div class="megamenu__item" data-parent="megamenu-newsmedia">
+								<!--<div class="megamenu__item" data-parent="megamenu-newsmedia">
 									<div class="grid">
 										<div class="grid__item one-half">
 											<div class="megamenu__first-level">
@@ -500,7 +515,6 @@
 												</div>
                         
 
-												<!--Press Releases-->
 
 												<div class="megamenu__menu__item megamenu__first-level__item">
 													<a class="megamenu__menu__link" href="../awards/index.htm">
@@ -510,7 +524,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>-->
+
 							</div>
 						</div>
 					</div>
@@ -934,9 +949,6 @@
 						<div class="menu--footer">
 							<ul class="menu__list menu__list--level-0">
 								<li class="menu__item">
-									<a href="../latest-news/index.htm" class="menu__link">News &#038; Media</a>
-								</li>
-								<li class="menu__item">
 									<a href="../contact-us/index.htm" class="menu__link">Contact Us</a>
 								</li>
 							</ul>
@@ -964,8 +976,7 @@
 
 							<div class="site-footer__social__item site-footer__social__item--linkedin">
 
-								<a href="#"
-									target="_blank">
+								<a href="#" target="_blank">
 
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
 										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 382 382"
@@ -1067,6 +1078,7 @@
 
 	</footer>
 	<!--Footer-->
+
 	<script defer=""
 		src="data:text/javascript;base64,DQogICAgICAgICAgICAoIGZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgICAgICB2YXIgaGVhZCA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCAnaGVhZCcgKVswXTsNCiAgICAgICAgICAgICAgICB2YXIgc3R5bGVUZW1wbGF0ZXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCAnc2NyaXB0LmNzcy1jb2RlLWNvbnRhaW5lcicgKTsNCiAgICAgICAgICAgICAgICBmb3IgKCBpID0gMDsgaSA8IHN0eWxlVGVtcGxhdGVzLmxlbmd0aDsgaSsrICkgew0KICAgICAgICAgICAgICAgICAgICB0cnkgew0KICAgICAgICAgICAgICAgICAgICAgICAgaGVhZC5pbnNlcnRBZGphY2VudEhUTUwoICdiZWZvcmVlbmQnLCBzdHlsZVRlbXBsYXRlc1tpXS5pbm5lckhUTUwgKTsNCiAgICAgICAgICAgICAgICAgICAgfSBjYXRjaCAoIGV4ICkgew0KICAgICAgICAgICAgICAgICAgICAgICAgY29uc29sZS5sb2coIGV4ICk7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9ICkoKTsNCiAgICAgICAg"></script>
 	<script defer="" type='text/javascript'
